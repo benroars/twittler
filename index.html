@@ -3,25 +3,80 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+
   </head>
   <body>
+  <div class='center'>
+  <h1 class='header'>Twittler</h1>
+  <button id="showtweet" type="button" class="btn btn-primary button">Refresh Tweets</button>
+  </div>
+  <div class='center'>
+  <div class="form-group">
+    <div>
+    <input type="text" class="form-control" id="usr" placeholder="Enter a tweet">
+    </div>
+  </div>
+  <div class='tweets'></div> 
+  </div>
     <script>
 
       $(document).ready(function(){
         var $body = $('body');
-        $body.html('');
+    var $tweets = $('.tweets');
+       // $body.html('');
 
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
+      var $user = $("<a href=#></a>");
+      $user.text('@' + tweet.user);
+      $tweet.text(': ' + tweet.message);
+      $user.prependTo($tweet);
+      //$tweet.text(': ' + tweet.message);
+          $tweet.appendTo($tweets);
           index -= 1;
         }
+    
+    $('#showtweet').on('click', function(event) {
+      event.preventDefault(); // To prevent following the link (optional)
+      $tweets.html('');
+      var index = streams.home.length - 1;
+      while(index >= 0){
+        var tweet = streams.home[index];
+        var $tweet = $('<div></div>');
+        var $user = $('<a href=# ></a>');
+        $user.text('@' + tweet.user);
+        $tweet.text(': ' + tweet.message);
+        $user.prependTo($tweet);
+        $tweet.appendTo($tweets);
+        index -= 1;
+      }
+    });
 
-      });
+    $('.able').on('click', function(e){
+      var user = $(this).data('value');
+      alert(user);
+    });
 
-    </script>
+     });
+
+  WebFontConfig = {
+    google: { families: [ 'Open+Sans:400,800:latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+  })(); 
+  </script>
   </body>
 </html>
