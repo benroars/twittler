@@ -1,0 +1,23 @@
+{
+  "name": "2016-04-twittler",
+  "version": "0.0.0",
+  "description": "twittler site for hr precourse",
+  "main": "data_generator.js",
+  "dependencies": {
+    "moment": "^2.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benroars/2016-04-twittler.git"
+  },
+  "author": "lewis roa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benroars/2016-04-twittler/issues"
+  },
+  "homepage": "https://github.com/benroars/2016-04-twittler"
+}
