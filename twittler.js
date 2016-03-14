@@ -7,11 +7,11 @@ var showUserTweets = function(anchor){
 
 	for(var i in streams.users[user]){
 		var $tweet = $('<div></div>');
+		//console.log(streams.users[user][i].length);
 		$tweet.text(': ' + streams.users[user][i].message);
         var $user = $('<a href="#" onClick="showUserTweets(this);"></a>');
         var $time = $('<span class="time"></span>');
         $time.text(moment(streams.users[user][i].created_at).fromNow());
-       // console.log(moment(streams.users[user][i].created_at).fromNow());
         $time.appendTo($tweet);
         $user.text('@' + user);
         $user.prependTo($tweet);
@@ -45,7 +45,6 @@ $(document).ready(function(){
 		addNewTweets();
 	});
 
-	//setInterval(addNewTweets, 1500);
 
 	WebFontConfig = {
       google: { families: [ 'Open+Sans:400,800:latin' ] }
