@@ -60,28 +60,3 @@ $(document).ready(function(){
     })(); 
 });
 
-
-
-
-
-
-
-
-//var addNewTweets = function() {
-//		if(streams.home.length > initialLength){
-//			var index = streams.home.length - 1;
-//			var count = 0;
-//			while(index >= initialLength){
-//				var tweet = streams.home[index];
-  //        		var $tweet = $('<div></div>');
-    //      		var $user = $('<a href="#"></a>');
-     //     		$user.text('@' + tweet.user)
-      //    		$tweet.text('@' + tweet.user + ': ' + tweet.message);
-       //   		$tweet.prependTo($tweets).hide();
-        //  		$tweet.slideDown();
-         // 		index -= 1;
-          //		count += 1;
-			//}
-			//initialLength += count;
-	//	}
-//	}
